@@ -2,24 +2,24 @@ import { useContext } from "react";
 import { ShopContext } from '../Context/ShopContext.jsx'
 import dropdown_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /dropdown_icon.png'
 import Item from "../Components/Item/Item.jsx";
-
+import './CSS/ShopCategory.css'
 const ShopCategory = (props) => {
     const {all_product} = useContext(ShopContext)
 
     return (
        
        
-        <div className="shop-category">
-            <img src={props.banner} alt="" />
-            <div className="shopcategory-indexSort">
+        <div className="shop-category ">
+            <img className="shopcategory-banner cursor-pointer" src={props.banner} alt="" />
+            <div className="shopcategory-indexSort flex justify-between items-center">
                 <p>
-                    <span>Showing 1-12</span> out of 36 products
+                    <span className="font-bold">Showing 1-12</span> out of 36 products
                 </p>
-                <div className="shopcategory-sort">
+                <div className="shopcategory-sort rounded-[40px] border border-[1px] border-solid border-gray-300">
                     Sort by <img src={dropdown_icon} alt="" />
                 </div>
             </div>
-            <div className="shopcategory-products">
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2  md:ml-[110px] md:mr-[110px]  justify-center mt-20 mb-[100px] md:mt-10 sm:ml-[70px] sm:mr-[70px] ">
                 {all_product.map((item, i) =>
                 {
                   if (props.category === item.category){
@@ -28,6 +28,9 @@ const ShopCategory = (props) => {
                     return null
                   }
                 })}
+            </div>
+            <div className="shopcategory-loadmore flex justify-center items-center w-[233px] h-[69px] rounded-[75px] text-[18px] font-bold cursor-pointer">
+                Explore More
             </div>
         </div>
     );
