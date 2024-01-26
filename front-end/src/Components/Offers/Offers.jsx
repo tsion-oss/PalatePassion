@@ -1,4 +1,4 @@
-import exclusive_image from '../Assets /exclusive_image.png'
+import exclusive_image from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/exclusive_image.png'
 import './Offers.css'
 
 const Offers = () => {

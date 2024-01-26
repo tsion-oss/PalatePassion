@@ -1,7 +1,7 @@
-import footer_logo from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /logo_big.png'
-import instagram_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /instagram_icon.png'
-import pinterest_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /pintester_icon.png'
-import whatsapp_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /whatsapp_icon.png'
+import footer_logo from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/logo_big.png'
+import instagram_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
+import pinterest_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
+import whatsapp_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
 
 const Footer = () => {
     return (

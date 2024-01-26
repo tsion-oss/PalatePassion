@@ -1,11 +1,11 @@
 
-import hand_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /hand_icon.png'
-import arrow_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /arrow.png'
-import hero_image from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets /hero_image.png'
+import hand_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hand_icon.png'
+import arrow_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/arrow.png'
+import hero_image from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hero_image.png'
 
 const Hero = () => {
     return (
-        <div className="md:h-100vh lg:pt-0 lg:pb-0 pt-20 pb-20 bg-gradient-to-b from-rose-200 to-gray-500 via-transparent flex">
+        <div className="md:h-100vh lg:pt-0 lg:pb-0 pt-20 pb-20 bg-rose-100 flex">
            <div className="flex-1 flex flex-col justify-center gap-[20px] lg:pl-[110px] md:pl-[80px] line-height-2 sm:pl-20 pl-10">
              <h2 className='text-black lg:text-md md:text-sm text-[12px] font-bold '>NEW ARRIVALS ONLY</h2>
              <div>
