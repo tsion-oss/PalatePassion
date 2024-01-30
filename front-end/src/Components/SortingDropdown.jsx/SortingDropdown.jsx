@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { ShopContext } from '../../Context/ShopContext';
 
-const SortingDropdown = ({ sortBy, setSortBy }) => {
+
+const SortingDropdown = () => {
+
+   const { sortBy, updatedSortBy, setSortBy } = useContext(ShopContext)
+
+    const handleChange = (e) => {
+        const newSortBy = e.target.value
+        setSortBy(newSortBy)
+    }
+    
     return (
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="default">Default sorting</option>
-            <option value="PriceAsc">Price: Low to High</option>
-            <option value="PriceDesc">Price: High to Low</option>
+        <select value={sortBy} onChange={handleChange}>
+            <option value="default">Sort</option>
+            <option value="priceAsc">Price: Low to High</option>
+            <option value="priceDesc">Price: High to Low</option>
         </select>
     );
 };

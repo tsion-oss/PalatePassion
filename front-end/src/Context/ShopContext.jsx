@@ -11,8 +11,13 @@ export const ShopContext = createContext(null)
 
 const ShopContextProvider = (props) => 
 {
+
+
+
+
+
   // all product axios call
-  const [backendAllProduct, setBackendAllProduct] = useState()
+  const [backendAllProduct, setBackendAllProduct] = useState([])
   const [backendData, setBackendData] = useState()
   const [backendNewCollection, setBackendNewCollection] = useState()
     useEffect(() =>  {
@@ -160,9 +165,11 @@ fetchCartItems();
       return totalItem;
     };
 
+    // Changes on the Cart Input Quantity
+
 
     const addCartQuantity = async (product, updatedQuantity) => {
-      // Ensure the updated quantity is not less than 1
+     
       updatedQuantity = Math.max(updatedQuantity, 1);
     
       try {
@@ -175,7 +182,7 @@ fetchCartItems();
           quantity: updatedQuantity,
         });
     
-        // Fetch the updated cart items after updating quantity
+       
         const response = await axios.get('http://localhost:3001/api/cart');
         const backendCart = response.data;
         setCartItems(backendCart);
@@ -185,14 +192,18 @@ fetchCartItems();
     };
     
     
- 
+  const [sortBy, setSortBy] = useState('default')
+
+  const updateSortBy = (newSortBy) => {
+    setSortBy(newSortBy)
+  }
 
 
    
 
     
 
-    const contextValue = { getTotalCartItems, getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
+    const contextValue = {sortBy, setSortBy, updateSortBy , getTotalCartItems, getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
 
     return(
         <ShopContext.Provider value={contextValue}>
