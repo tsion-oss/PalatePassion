@@ -9,22 +9,12 @@ export const ShopContext = createContext(null)
 
 
 
-
-
-
-  
-
-
-
 const ShopContextProvider = (props) => 
 {
   // all product axios call
   const [backendAllProduct, setBackendAllProduct] = useState()
   const [backendData, setBackendData] = useState()
   const [backendNewCollection, setBackendNewCollection] = useState()
-
- 
-
     useEffect(() =>  {
       axios.get('http://localhost:3001/api/all_product')
            .then(response => {
@@ -53,31 +43,16 @@ const ShopContextProvider = (props) =>
            });
 
 
-     }, [])  
+     }, []) 
+
+
      
-    // default cart
-    // const getDefaultCart = () => {
-    //   let cart = {};
-    //   if (backendAllProduct && backendAllProduct.length) {
-    //     for (let index = 0; index < backendAllProduct.length; index++) {
-    //       cart[index] = { id: backendAllProduct[index].id, quantity: 0 };
-    //     }
-    //   }
-    //   return cart;
-    // };
-    
 
-    // console.log(defaultCart);
+     
   
+   // Adding to cart
+const [cartItems, setCartItems] = useState([])
 
-  
-
-    const [cartItems, setCartItems] = useState([])
- 
-   
-
-   
-// adding to cart
 const addToCart = async (product) => {
   try {
     const response = await axios.get('http://localhost:3001/api/cart');
@@ -118,12 +93,7 @@ fetchCartItems();
 }, []); 
 
 
-// console.log(cartItems)
 
-
-
-    
-    
     
     //removing from cart
     const removeFromCart = async (product) => {
@@ -157,6 +127,7 @@ fetchCartItems();
     };
 
 
+    // Getting Total Cart Amount
 
     const getTotalCartAmount = () => {
       let total = 0;
@@ -172,14 +143,16 @@ fetchCartItems();
       return total;
     };
     
+ 
+    // Getting total CartItems
+
 
     const getTotalCartItems = () => {
       let totalItem = 0;
     
       Object.values(cartItems).forEach(item => {
-        // Check if the quantity is greater than 0
+  
         if (item.quantity > 0) {
-          // Add the quantity of each item to the totalItem
           totalItem += item.quantity;
         }
       });
@@ -188,11 +161,38 @@ fetchCartItems();
     };
 
 
+    const addCartQuantity = async (product, updatedQuantity) => {
+      // Ensure the updated quantity is not less than 1
+      updatedQuantity = Math.max(updatedQuantity, 1);
+    
+      try {
+        await axios.put(`http://localhost:3001/api/cart/${product.id}`, {
+          id: product.id,
+          image: product.image,
+          name: product.name,
+          old_price: product.old_price,
+          new_price: product.new_price,
+          quantity: updatedQuantity,
+        });
+    
+        // Fetch the updated cart items after updating quantity
+        const response = await axios.get('http://localhost:3001/api/cart');
+        const backendCart = response.data;
+        setCartItems(backendCart);
+      } catch (error) {
+        console.error('Error updating cart quantity:', error.response ? error.response.data : error.message);
+      }
+    };
+    
+    
+ 
+
+
    
 
     
 
-    const contextValue = { getTotalCartItems, getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection }
+    const contextValue = { getTotalCartItems, getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
 
     return(
         <ShopContext.Provider value={contextValue}>

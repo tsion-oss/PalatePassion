@@ -4,7 +4,7 @@ import remove_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/
 import './CartItems.css'
 
 const CartItems = () => {
- const {getTotalCartAmount , cartItems, removeFromCart, backendAllProduct } = useContext(ShopContext)
+ const {getTotalCartAmount , cartItems, removeFromCart, backendAllProduct, addCartQuantity,  } = useContext(ShopContext)
 
 console.log(cartItems)
 
@@ -26,7 +26,14 @@ console.log(cartItems)
                     <img src={e.image} alt="" className="carticon-product-icon"/>
                     <p>{e.name}</p>
                     <p>${e.new_price}</p>
-                    <button className="cartitems-quantity border border-[2px] border-gray-300 bg-white w-[60px] h-[46px]">{e.quantity}</button>
+                   
+                    <input
+                        type="number"
+                        value={e.quantity}
+                        onChange={(event) => addCartQuantity(e, parseInt(event.target.value))}
+                        className="cartitems-quantity border border-[2px] border-gray-300 bg-white w-[60px] h-[46px] flex items-center justify-center text-center"
+                        />
+                        
                     <p>${e.new_price * e.quantity}</p>
                     <img className="cursor-pointer" src={remove_icon} onClick={() => { removeFromCart(e) }} alt="" />
                     <hr className="h-[3px] bg-gray-200 border-0 " />

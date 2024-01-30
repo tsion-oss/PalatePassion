@@ -48,16 +48,7 @@ const ProductDisplay = (props) => {
                     <div className="productdisplay-right-description text-gray-700 mt-2 w-[450px] text-[13px]">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nemo vel maiores incidunt minima optio iure maxime blanditiis. Ullam pariatur, vel magnam explicabo dolore minima sed animi quibusdam corporis fugiat.
                     </div>
-                    {/* <div className="productdisplay-right-size mt-4">
-                        <h1 className='text-gray-700 text-xl font-bold'>Select Size</h1>
-                        <div className="productdisplay-right-size flex gap-2">
-                            <div className="border border-gray-300 rounded px-5 py-2 cursor-pointer">S</div>
-                            <div className="border border-gray-300 rounded px-5 py-2">M</div>
-                            <div className="border border-gray-300 rounded px-5 py-2">L</div>
-                            <div className="border border-gray-300 rounded px-5 py-2">XL</div>
-                            <div className="border border-gray-300 rounded px-5 py-2">XXL</div>
-                        </div>
-                    </div> */}
+              
                     <button onClick={() => {addToCart(product)}} className="mt-4 bg-red-500 text-white px-5 py-4 rounded w-[200px] text-[14px] mt-[50px] mb-[50px]">ADD TO CART</button>
                     <p className='productdisplay-right-category mt-4'><span className="font-bold">Category:</span> Women, T-Shirt, Crop Top </p>
                     <p className='productdisplay-right-category'><span className="font-bold">Tags:</span> Modern, Latest </p>
