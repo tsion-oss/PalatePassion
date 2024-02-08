@@ -1,0 +1,16 @@
+.heart-icon {
+    color: white;
+    fill: none;
+    stroke: black;
+    stroke-width: 20;
+    transition: color 0.3s ease-in-out;
+  }
+.heart-icon:hover {
+    color: red;
+    stroke: none;
+  }
+  
+  .heart-icon:active {
+    color: red;
+    stroke: none;
+  }

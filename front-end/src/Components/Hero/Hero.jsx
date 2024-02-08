@@ -2,27 +2,62 @@
 import hand_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hand_icon.png'
 import arrow_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/arrow.png'
 import hero_image from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hero_image.png'
+import { useNavigate } from 'react-router-dom';
+import './Hero.css'
 
 const Hero = () => {
+
+    const navigate = useNavigate()
+  
+    
+      
+      const navigateToRandomCategory = () => {
+        navigate('/womens')
+      };
+
+
     return (
-        <div className="md:h-100vh lg:pt-0 lg:pb-0 pt-20 pb-20 bg-rose-100 flex">
-           <div className="flex-1 flex flex-col justify-center gap-[20px] lg:pl-[110px] md:pl-[80px] line-height-2 sm:pl-20 pl-10">
-             <h2 className='text-black lg:text-md md:text-sm text-[12px] font-bold '>NEW ARRIVALS ONLY</h2>
-             <div>
-                <div className="flex items-center gap-[20px]">
-                    <p className='text-black lg:text-6xl  md:text-5xl text-4xl font-bold'>new</p>
-                    <img  className='lg:w-20 w-10 ' src={hand_icon} alt=''/>
+        <div className="md:h-100vh lg:pt-0 pt-5 
+                        lg:pb-0  md:pb-17 sm:pb-10
+                        bg-gray-100 
+                        xl:px-[120px] lg:px-[80px] md:px-[30px] sm:px-[20px] sm:flex sm:flex-row flex-column ">
+           <div className="sm:flex-1 sm:flex flex flex-col sm:items-start  justify-center items-center
+                          sm:mt-0 mt-5
+                          lg:gap-[20px] gap-[10px] 
+                          line-height-2 sm:pl-10 ">
+                <div className='heroTextBox sm:items-start sm:justify-start flex flex-col justify-center items-center
+                                sm:max-w-auto max-w-[450px]
+                                sm:mt-0 sm:mt-[50px] mt-[5px]'>
+                    <div className='heroBigText text-black 
+                                    xl:text-[42px] lg:text-4xl md:text-3xl sm:text-[29px] text-[1.9rem]
+                                    mb-5
+                                    lg:mt-2  mt-3  font-extrabold '>
+                            <div className="flex items-center md:mb-2 sm:mb-0 ">
+                                <p className='text-black  '>Collection and style</p>
+                                
+                            </div>
+                            <div className='flex items-center'>
+                                <p className=' whitespace-nowrap'>for everyone</p>
+                            </div>
+                        </div>
+                        <div className='HeroSmallText w-[80%] 
+                                        xl:text-[16px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px]
+                                        xl:max-w-auto lg:max-w-[76%] md:max-w-[74%] sm:max-w-[80%]'>
+                            <p>Welcome to our collection! Whether you are looking for clothing or accessories, we have got something for you.</p>
+                        </div>
                 </div>
-                <p className='text-black lg:text-6xl  md:text-5xl text-4xl   font-bold md:mt-0 mt-3'>collections</p>
-                <p className='text-black lg:text-6xl lg:mt-2 md:mt-3 mt-3 md:text-5xl text-4xl  font-bold whitespace-nowrap'>for everyone</p>
-             </div>
-             <div className='flex justify-center items-center gap-[15px] sm:w-[230px] sm:h-[50px] w-[150px] h-[35px]  rounded-3xl mt-[30px] bg-red-500 text-white md:text-[15px] text-[12px] font-bold cursor-pointer'>
-                <div>Latest Collection</div>
-                <img className=' md:w-5 w-3 ' src={arrow_icon} alt=''/>
-             </div>
+                <div onClick={navigateToRandomCategory} className=' HeroButton
+                md:flex  flex justify-center items-center md:gap-[15px] gap-2 bg-red-600
+                xl-w-[200px] lg:w-[180px] md:w-[200px] sm:w-[200px] w-[80%] 
+                lg:h-[50px]  md:h-[40px]  h-[35px]  
+                md:rounded-2xl rounded-lg mt-[30px]  text-white 
+                md:text-[14px] text-[12px] font-bold cursor-pointer '>
+                        <p>Buy now</p>
+                        <img className='  lg:w-5 md:w-4 w-3 ' src={arrow_icon} alt=''/>
+                </div>
            </div> 
-           <div className='flex-1'>
-               <img className='md:block hidden lg:max-w-[100] md:max-w-[50]' src={hero_image} alt="" />
+           <div className='ImageBox flex-1 flex justify-center '>
+                <img className='heroImage lg:max-w-[100] md:max-w-[50] sm:max-w-[20] max-w-[20] sm:w-auto w-[80%]' src={hero_image} alt="" />
            </div>
         </div>
     );

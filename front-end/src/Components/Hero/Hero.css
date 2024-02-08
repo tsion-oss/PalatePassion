@@ -1,0 +1,24 @@
+@media (min-width: 426px) and (max-width: 639px){
+ .heroImage{
+    width: 70%;
+ }
+ .heroBigText{
+    font-size: 2rem;
+ }
+.ImageBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.HeroButton{
+    width: 55%;
+}
+.HeroSmallText{
+    font-size: 0.8rem;
+    max-width: 73%;
+}
+.NewCollection{
+    margin: 0px 30px;
+}
+
+}

@@ -5,14 +5,15 @@ import "./NewCollections.css"
 import { ShopContext } from '../../Context/ShopContext';
 import { useContext } from 'react';
 
+
 const NewCollections = () => {
 
     const { backendNewCollection } = useContext(ShopContext)
     return (
-        <div className=" m-auto flex flex-col items-center gap-3 h-full md:h-screen mt-8 ">
-            <h1 className='text-black text-2xl md:text-3xl lg:text-4xl font-bold'>NEW COLLECTIONS</h1>
-            <hr className="w-20 md:w-40 h-1 md:h-1.5 rounded-lg bg-black" />
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2  md:ml-[110px] md:mr-[110px]  justify-center mt-20 mb-[100px] md:mt-10 sm:ml-[70px] sm:mr-[70px]">
+        <div id='newCollections' className=" NewCollectionBox flex flex-col items-center gap-3   xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px] md:mt-0 mt-20 ">
+            <h1 className='text-black text-2xl md:text-2xl lg:text-3xl font-bold'>NEW COLLECTIONS</h1>
+            <hr className="md:w-[20%] w-[40%] h-1 rounded-lg bg-black" />
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-10">
                 {backendNewCollection &&
                 backendNewCollection.map((item, i) =>
                 {

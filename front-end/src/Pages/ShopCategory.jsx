@@ -1,8 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { ShopContext } from '../Context/ShopContext.jsx'
-import dropdown_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/dropdown_icon.png'
 import Item from "../Components/Item/Item.jsx";
-import axios from "axios";
 import './CSS/ShopCategory.css'
 import SortingDropdown from "../Components/SortingDropdown.jsx/SortingDropdown.jsx";
 
@@ -31,19 +29,22 @@ const ShopCategory = (props) => {
     return (
        
        
-        <div className="shop-category ">
-            <img className="shopcategory-banner cursor-pointer" src={props.banner} alt="" />
-            <div className="shopcategory-indexSort flex justify-between items-center">
-                <p>
+        <div className="shop-category mt-[120px]  mt-20 xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px] md:mt-[190px] mt-[170px]">
+            
+            <div className="shopcategory-indexSort flex flex-col md:flex-row justify-between items-center">
+                <p className="mb-2 md:mb-0">
                     <span className="font-bold">Showing 1-12</span> out of 36 products
                 </p>
-                <div className="shopcategory-sort rounded-[40px] border border-[1px] border-solid border-gray-300">
+                <div className="shopcategory-sort flex justify-center items-center border border-[1px] border-solid border-gray-300 md:w-[180px] sm:w-[120px] w-[100px] sm:h-[40px] h-[30px]">
                     {/* <img src={dropdown_icon} alt="" /> */}
-                     <SortingDropdown />
-
+                    <SortingDropdown />
                 </div>
             </div>
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 md:ml-[110px] md:mr-[110px] justify-center mt-20 mb-[100px] md:mt-10 sm:ml-[70px] sm:mr-[70px]">
+
+
+
+
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8">
             {sortedProductList &&
                     sortedProductList.map((item, i) => {
                         if (props.category === item.category) {
@@ -52,12 +53,9 @@ const ShopCategory = (props) => {
                             return null;
                         }
                     })}
-</div>
+         </div>
 
-            <div className="shopcategory-loadmore flex justify-center items-center w-[233px] h-[69px] rounded-[75px] text-[18px] font-bold cursor-pointer">
-                Explore More
-            </div>
-        </div>
+     </div>
     );
 };
 

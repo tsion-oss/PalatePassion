@@ -1,15 +1,16 @@
 import Item from "../Item/Item";
 import { ShopContext } from "../../Context/ShopContext";
 import { useContext } from "react";
+import './Popular.css'
 
 const Popular = () => {
 
     const { backendData } = useContext(ShopContext)
     return (
-        <div className="flex flex-col items-center gap-3 h-full md:h-screen mt-8">
-            <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-bold">POPULAR IN WOMEN</h1>
-            <hr className="w-20 md:w-40 h-1 md:h-1.5 rounded-lg bg-black" />
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2  md:ml-[110px] md:mr-[110px]  justify-center mt-20 mb-[100px] md:mt-10 sm:ml-[70px] sm:mr-[70px]">
+        <div className="PopularBox flex flex-col items-center gap-3 h-full md:h-screen mt-20 xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px]">
+            <h1 className="text-black text-2xl md:text-2xl lg:text-3xl font-bold">POPULAR IN WOMEN</h1>
+            <hr className="w-[20%] h-1 rounded-lg bg-black" />
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8 ">
                 {backendData &&
                 backendData.map((item, i) =>
             

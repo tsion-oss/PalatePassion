@@ -21,7 +21,7 @@ const ShopContextProvider = (props) =>
   const [backendData, setBackendData] = useState()
   const [backendNewCollection, setBackendNewCollection] = useState()
     useEffect(() =>  {
-      axios.get('http://localhost:3001/api/all_product')
+      axios.get('https://passion-palate-api.onrender.com/api/all_product')
            .then(response => {
              setBackendAllProduct(response.data)
            })
@@ -30,7 +30,7 @@ const ShopContextProvider = (props) =>
            });
           
 
-      axios.get('http://localhost:3001/api/data')
+      axios.get('https://passion-palate-api.onrender.com/api/data')
            .then(response => {
              setBackendData(response.data)
            })
@@ -39,7 +39,7 @@ const ShopContextProvider = (props) =>
            });
            
 
-        axios.get('http://localhost:3001/api/new_collection')
+        axios.get('https://passion-palate-api.onrender.com/api/new_collection')
            .then(response => {
              setBackendNewCollection(response.data)
            })
@@ -60,18 +60,18 @@ const [cartItems, setCartItems] = useState([])
 
 const addToCart = async (product) => {
   try {
-    const response = await axios.get('http://localhost:3001/api/cart');
+    const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
     const backendCart = response.data;
    
     const existingCartItem = backendCart.find((item) => item.id === product.id);
 
     if (existingCartItem) {
-      await axios.put(`http://localhost:3001/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity + 1 });
+      await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity + 1 });
     } else {
-      await axios.post('http://localhost:3001/api/cart', { id: product.id,  image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price,quantity: 1 });
+      await axios.post('https://passion-palate-api.onrender.com/api/cart', { id: product.id,  image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price,quantity: 1 });
     }
     try{
-    const response = await axios.get('http://localhost:3001/api/cart');
+    const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
     const backendCart = response.data;
     setCartItems(backendCart);
    }catch(error){
@@ -87,7 +87,7 @@ useEffect(() => {
 
 const fetchCartItems = async () => {
   try {
-    const response = await axios.get('http://localhost:3001/api/cart');
+    const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
     const backendCart = response.data;
     setCartItems(backendCart);
   } catch (error) {
@@ -104,20 +104,20 @@ fetchCartItems();
     const removeFromCart = async (product) => {
       
       try {
-        const response = await axios.get('http://localhost:3001/api/cart');
+        const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
         const backendCart = response.data;
         setCartItems(backendCart)
         const existingCartItem = backendCart.find((item) => item.id === product.id);
     
         if (existingCartItem.quantity > 1) {
-          await axios.put(`http://localhost:3001/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity - 1 });
+          await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity - 1 });
         } else {
-          await axios.delete(`http://localhost:3001/api/cart/${product._id}`);
+          await axios.delete(`https://passion-palate-api.onrender.com/api/cart/${product._id}`);
         }
     
       
         try{
-          const response = await axios.get('http://localhost:3001/api/cart');
+          const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
           const backendCart = response.data;
           setCartItems(backendCart);
          }catch(error){
@@ -150,20 +150,20 @@ fetchCartItems();
     
  
     // Getting total CartItems
-
-
     const getTotalCartItems = () => {
       let totalItem = 0;
     
-      Object.values(cartItems).forEach(item => {
-  
-        if (item.quantity > 0) {
+      cartItems.forEach(item => {
+    
+        if (item && item.quantity && item.quantity > 0) {
           totalItem += item.quantity;
         }
       });
     
       return totalItem;
     };
+    
+
 
     // Changes on the Cart Input Quantity
 
@@ -173,7 +173,7 @@ fetchCartItems();
       updatedQuantity = Math.max(updatedQuantity, 1);
     
       try {
-        await axios.put(`http://localhost:3001/api/cart/${product.id}`, {
+        await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, {
           id: product.id,
           image: product.image,
           name: product.name,
@@ -183,7 +183,7 @@ fetchCartItems();
         });
     
        
-        const response = await axios.get('http://localhost:3001/api/cart');
+        const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
         const backendCart = response.data;
         setCartItems(backendCart);
       } catch (error) {
@@ -191,19 +191,48 @@ fetchCartItems();
       }
     };
     
-    
+   // Sort function 
   const [sortBy, setSortBy] = useState('default')
 
   const updateSortBy = (newSortBy) => {
     setSortBy(newSortBy)
   }
 
+  // Search 
 
-   
+  const [searchQuery, setSearchQuery] = useState('')
+  
+  const [searchIsOpen, setSearchIsOpen] = useState(false);
+
+
+
+  // Alert for AddToCArt
+
+  const alertForCart = (pro) => {
+    alert(`${pro.name} is added to shopping cart!`)
+  }
+  
+
+
+
+
+  
+
+
+
+  
+  // const toggleSearch = () => {
+  //   setSearchIsOpen((prevSearchIsOpen) => !prevSearchIsOpen);
+  // };
+
+  
+  
 
     
 
-    const contextValue = {sortBy, setSortBy, updateSortBy , getTotalCartItems, getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
+    const contextValue = { alertForCart, searchIsOpen, setSearchIsOpen,  searchQuery,  setSearchQuery, sortBy, setSortBy, updateSortBy ,getTotalCartItems,  getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
+
+    
 
     return(
         <ShopContext.Provider value={contextValue}>
