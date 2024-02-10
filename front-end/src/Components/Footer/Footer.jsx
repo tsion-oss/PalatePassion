@@ -1,5 +1,5 @@
 
-import logo from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Navbar/logo.png'
+import logo from './logo.png'
 import { FaInstagram, FaPinterest, FaWhatsapp  } from 'react-icons/fa';
 
 
