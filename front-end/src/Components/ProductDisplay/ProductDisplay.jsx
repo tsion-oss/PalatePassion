@@ -24,7 +24,7 @@ const ProductDisplay = (props) => {
     return (
         <section className='productdisplay md:flex md:flex-row flex-col md:justify-center md:items-start mt-10 items-center justify-center  '>
             <div className="productdisplay-left md:flex  md:items-center flex justify-center  gap-5 lg:mb-[200px]">
-                <div className="productdisplay-img overflow-y-auto cursor-pointer">
+                <div className="productdisplay-img overflow-y-auto cursor-pointer relative">
                
                 <Link className='relative' to={`/product/${product?.id}`}><img onClick={window.scrollTo(0,0)} className='productdisplay-main-img mb-5 xl:max-w-[800px] xl:max-h-[800px] sm:max-w-[600px] sm:max-h-[600px]' src={product?.image} alt=""/>
                 <FontAwesomeIcon icon={faHeart} className='heart-icon' style={{ position: 'absolute', bottom: '7px', right: '7px' }}  />
