@@ -37,25 +37,30 @@ function App() {
  
   return (
     <>
-    <Navbar search={search} handleSearch={handleSearch} searchResults={searchResults} defaultSearch={defaultSearch} setSearch={setSearch} />
+    <Navbar
+      search={search}
+      handleSearch={handleSearch}
+      searchResults={searchResults}
+      defaultSearch={defaultSearch}
+      setSearch={setSearch}
+    />
     <ShopContextProvider>
-    <Routes>
-      
-       <Route path='/' element={<Shop/>}/>
-       <Route path='/mens' element={<ShopCategory  category='men'/>}/>
-       <Route path='/womens' element={<ShopCategory category='women'/>}/>
-       <Route path='/kids' element={<ShopCategory  category='kid'/>}/>
-       <Route path='/product' element={<Product/>}>
-          <Route path=':productId' element={<Product/>}/>
-       </Route>
-       <Route path='/cart' element={<Cart/>}/>
-       <Route path='/login' element={<LoginSignup/>}/>
-       <Route path='/search' element={<SearchItems searchResults={searchResults} handleSearch={handleSearch}/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Shop />} />
+        <Route path="/mens" element={<ShopCategory category="men" />} />
+        <Route path="/womens" element={<ShopCategory category="women" />} />
+        <Route path="/kids" element={<ShopCategory category="kid" />} />
+        <Route path="/product" element={<Product />}>
+          {/* Nested route for individual product */}
+          <Route path=":productId" element={<Product />} />
+        </Route>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<LoginSignup />} />
+        <Route path="/search" element={<SearchItems searchResults={searchResults} handleSearch={handleSearch} />} />
+      </Routes>
     </ShopContextProvider>
-    <Footer/>
- 
-    </>
+    <Footer />
+  </>
   )
 }
 

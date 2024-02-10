@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
 const CartItems = () => {
  const {getTotalCartAmount , cartItems, removeFromCart, backendAllProduct, addCartQuantity, getTotalCartItem  } = useContext(ShopContext)
@@ -50,11 +51,11 @@ const CartItems = () => {
                 {Object.values(cartItems).reverse().map((item) => (
               <div key={item.id} className="cartitems-format flex  flex-row gap-10 w-full pb-10 px-5 py-5">
                 <div>
-                  <a href={`/product/${item.id}`}><img src={item.image} alt="" className="carticon-product-icon xl:max-w-[130px] lg:max-w-[120px] md:max-w-[110px] sm:max-w-[100px] max-w-[80px]" /></a>
+                  <Link to={`/product/${item.id}`}><img src={item.image} alt="" className="carticon-product-icon xl:max-w-[130px] lg:max-w-[120px] md:max-w-[110px] sm:max-w-[100px] max-w-[80px]" /></Link>
                 </div>
                 <div className="flex flex-col w-full justify-between lg:py-3 lg:text-lg md:text-md text-sm">
                   <div className="flex justify-between items-center">
-                    <p><a className="hover:text-red-500 active:text-red-500" href={`/product/${item.id}`}>{item.name}</a></p>
+                    <p><Link className="hover:text-red-500 active:text-red-500" to={`/product/${item.id}`}>{item.name}</Link></p>
                     <FontAwesomeIcon className="cursor-pointer " style={{ color: 'black' }} icon={faTrash} onClick={() => { removeFromCart(item) }} />
                   </div>
                   <div>
