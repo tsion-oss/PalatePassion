@@ -1,4 +1,4 @@
-import arrow_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/breadcrum_arrow.png'
+
 import './Breadcrums.css';
 import { Link } from 'react-router-dom';
 

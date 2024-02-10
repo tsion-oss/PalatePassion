@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
-import remove_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/cart_cross_icon.png'
 import './CartItems.css'
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 

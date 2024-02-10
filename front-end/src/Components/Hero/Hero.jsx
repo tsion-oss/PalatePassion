@@ -1,7 +1,6 @@
 
-import hand_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hand_icon.png'
-import arrow_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/arrow.png'
-import hero_image from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/hero_image.png'
+import arrow_icon from './arrow.png'
+import hero_image from './hero_image.png'
 import { useNavigate } from 'react-router-dom';
 import './Hero.css'
 
