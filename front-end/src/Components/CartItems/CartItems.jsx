@@ -19,11 +19,11 @@ const CartItems = () => {
          <div className="">
           <div className="text-center">
             {cartItems && cartItems.length === 0 ? (
-                <div className="pb-4 pb-[80px]">
-                  <h1 className="text-4xl">Your Shopping bag is empty</h1>
+                <div className="pb-4 lg:pb-[80px] pb-[50px]">
+                  <h1 className="lg:text-4xl md:text-3xl text-2xl">Your Shopping bag is empty</h1>
                 </div>
               ) : (
-                <div className="pb-8 pb-[80px]">
+                <div className="pb-8 lg:pb-[80px]">
                   <h1 className="lg:text-4xl md:text-3xl text-2xl">Your Shopping bag</h1>
                 </div>
               )}
@@ -33,8 +33,8 @@ const CartItems = () => {
            
             {Object.values(cartItems).length === 0 ? (
               
-              <div className=" bg-white max-w-[700px] p-8 h-[120px]">
-                <h1 className="text-lg">Your Shopping bag is empty</h1>
+              <div className=" bg-white max-w-[700px] p-8 h-[120px] ">
+                <h1 className="text-lg  text-center">Your Shopping bag is empty</h1>
               </div>
             ) : (
               
@@ -82,7 +82,7 @@ const CartItems = () => {
                     </div>
                   </div>
 
-                  <div className="lg:pt-0 mt-10 caritems-total  w-[100%]  p-5  bg-white flex-1 flex-col mr-[200px] gap-[40px]  ">
+                  <div className="lg:pt-5 lg:mt-0 mt-10 caritems-total  w-[100%]  p-5  bg-white flex-1 flex-col mr-[200px] gap-[40px]  ">
                     <h1 className="lg:text-xl text-lg font-bold text-black mb-10">Cart Totals</h1>
                     <div>
                       <div className="caritems-total-item flex justify-between py-[15px] px-[0px]">
