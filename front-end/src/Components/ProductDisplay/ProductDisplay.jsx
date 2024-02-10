@@ -34,7 +34,7 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-img overflow-y-auto cursor-pointer relative">
                     <Link className='relative' to={`/product/${product.id}`}>
                         <img onClick={window.scrollTo(0, 0)} className='productdisplay-main-img mb-5 xl:max-w-[800px] xl:max-h-[800px] sm:max-w-[700px] sm:max-h-[700px]' src={product.image} alt="" />
-                        <FontAwesomeIcon icon={faHeart} className='heart-icon' style={{ position: 'absolute', bottom: '7px', right: '7px' }}  />
+                        {/* <FontAwesomeIcon icon={faHeart} className='heart-icon' style={{ position: 'absolute', bottom: '7px', right: '7px' }}  /> */}
                     </Link>
                 </div>
             </div>
