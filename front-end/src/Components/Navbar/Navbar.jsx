@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom'
 
-import cart_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/cart_icon.png'
+import cart_icon from './cart_icon.png'
 import { ShopContext } from "../../Context/ShopContext";
 
 import { FaSearch } from 'react-icons/fa';
