@@ -6,7 +6,7 @@ const Breadcrums = (props) => {
     const { product } = props;
 
     return (
-        <div className="breadcrum flex justify-start items-center gap-[8px] text-gray-700  sm:text-[12px] sm:max-mx-[500px] text-[8px]">
+        <div className="breadcrum flex justify-center gap-[8px] text-gray-700 md:text-[12px]  sm:text-[11px] text-[9px] ">
         <Link to='/' className="hover:text-red-500 active:text-red-500">HOME</Link>
          /
         <Link to='/' className="hover:text-red-500 active:text-red-500">SHOP</Link>

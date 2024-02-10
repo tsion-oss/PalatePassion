@@ -10,10 +10,10 @@ const NewCollections = () => {
 
     const { backendNewCollection } = useContext(ShopContext)
     return (
-        <div id='newCollections' className=" NewCollectionBox flex flex-col items-center gap-3   xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px] md:mt-0 mt-20 ">
+        <div id='newCollections' className=" NewCollectionBox flex flex-col items-center gap-3   xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px] md:mt-10 mt-20 ">
             <h1 className='text-black text-2xl md:text-2xl lg:text-3xl font-bold'>NEW COLLECTIONS</h1>
             <hr className="md:w-[20%] w-[40%] h-1 rounded-lg bg-black" />
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-10">
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-10 md:gap-8 sm:gap-7 gap-3 justify-center mt-10 \">
                 {backendNewCollection &&
                 backendNewCollection.map((item, i) =>
                 {

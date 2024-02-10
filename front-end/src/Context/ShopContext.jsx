@@ -62,13 +62,16 @@ const addToCart = async (product) => {
   try {
     const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
     const backendCart = response.data;
-   
+     setCartItems(backendCart)
     const existingCartItem = backendCart.find((item) => item.id === product.id);
 
     if (existingCartItem) {
-      await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity + 1 });
+        const response = await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity + 1 });
+        setCartItems(response.data)
+       
     } else {
-      await axios.post('https://passion-palate-api.onrender.com/api/cart', { id: product.id,  image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price,quantity: 1 });
+      const response = await axios.post('https://passion-palate-api.onrender.com/api/cart', { id: product.id,  image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price,quantity: 1 });
+      setCartItems(response.data)
     }
     try{
     const response = await axios.get('https://passion-palate-api.onrender.com/api/cart');
@@ -110,7 +113,8 @@ fetchCartItems();
         const existingCartItem = backendCart.find((item) => item.id === product.id);
     
         if (existingCartItem.quantity > 1) {
-          await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity - 1 });
+          const response = await axios.put(`https://passion-palate-api.onrender.com/api/cart/${product.id}`, { id: product.id, image: product.image, name: product.name, old_price: product.old_price, new_price: product.new_price, quantity: existingCartItem.quantity - 1 });
+          setCartItems(response.data)
         } else {
           await axios.delete(`https://passion-palate-api.onrender.com/api/cart/${product._id}`);
         }
@@ -136,7 +140,7 @@ fetchCartItems();
 
     const getTotalCartAmount = () => {
       let total = 0;
-    
+      
       for (const itemId in cartItems) {
         const item = cartItems[itemId];
     
@@ -144,24 +148,27 @@ fetchCartItems();
           total += item.new_price * item.quantity;
         }
       }
-    
+     
       return total;
-    };
-    
- 
+    }
+   
     // Getting total CartItems
     const getTotalCartItems = () => {
       let totalItem = 0;
     
-      cartItems.forEach(item => {
-    
-        if (item && item.quantity && item.quantity > 0) {
-          totalItem += item.quantity;
-        }
-      });
-    
-      return totalItem;
+     for (const itemId in cartItems) {
+      const item = cartItems[itemId]
+      if(item && item.quantity && item.quantity) {
+        totalItem += item.quantity
+      }
+       
+     }
+     console.log(totalItem)
+     return totalItem
     };
+    
+  
+
     
 
 
@@ -212,7 +219,12 @@ fetchCartItems();
     alert(`${pro.name} is added to shopping cart!`)
   }
   
+  // Cart open and close
+  const [open, SetOpen] = useState(false)
 
+  const CartSwitch = () => {
+     SetOpen(!open)
+  }
 
 
 
@@ -230,7 +242,7 @@ fetchCartItems();
 
     
 
-    const contextValue = { alertForCart, searchIsOpen, setSearchIsOpen,  searchQuery,  setSearchQuery, sortBy, setSortBy, updateSortBy ,getTotalCartItems,  getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
+    const contextValue = { CartSwitch, alertForCart, searchIsOpen, setSearchIsOpen,  searchQuery,  setSearchQuery, sortBy, setSortBy, updateSortBy ,getTotalCartItems,  getTotalCartAmount, cartItems, addToCart, removeFromCart, backendAllProduct, backendData, backendNewCollection, addCartQuantity,  }
 
     
 

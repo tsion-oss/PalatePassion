@@ -1,14 +1,11 @@
-import footer_logo from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/logo_big.png'
-import instagram_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
-import pinterest_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
-import whatsapp_icon from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Assets/instagram_icon.png'
+
 import logo from '/Users/zion/Documents/Mine/PalatePassion/front-end/src/Components/Navbar/logo.png'
 import { FaInstagram, FaPinterest, FaWhatsapp  } from 'react-icons/fa';
 
 
 const Footer = () => {
     return (
-        <div className="flex flex-col justify-center items-center gap-[50px] bg-gray-100 xl:mt-[200px]  md:mt-[150px] mt-[100px] ">
+        <div className="flex flex-col justify-center items-center gap-[50px] xl:mt-[200px] lg:mt-[150px]  md:mt-[120px] mt-[100px] ">
             <div className="footer-logo flex items-center gap-[20px] mt-5">
                 <img className='w-[90px]' src={logo} alt="" />
                 

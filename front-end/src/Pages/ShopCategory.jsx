@@ -44,7 +44,7 @@ const ShopCategory = (props) => {
 
 
 
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-5 md:gap-5 sm:gap-7 gap-2 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8">
+            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-10 md:gap-8 sm:gap-7 gap-3 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8">
             {sortedProductList &&
                     sortedProductList.map((item, i) => {
                         if (props.category === item.category) {

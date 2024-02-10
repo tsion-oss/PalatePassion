@@ -10,7 +10,6 @@ const Shop = () => {
         <div className="pt-[90px]">
             <Hero/>
             <Popular />
-            {/* <Offers/> */}
             <NewCollections/>
         </div>
     );
