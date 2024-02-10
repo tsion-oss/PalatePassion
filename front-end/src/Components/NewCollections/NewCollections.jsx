@@ -1,6 +1,6 @@
 
 import Item from '../Item/Item';
-import "./NewCollections.css"
+
 
 import { ShopContext } from '../../Context/ShopContext';
 import { useContext } from 'react';

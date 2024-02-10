@@ -1,7 +1,7 @@
 import Item from "../Item/Item";
 import { ShopContext } from "../../Context/ShopContext";
 import { useContext } from "react";
-import './Popular.css'
+
 
 const Popular = () => {
 

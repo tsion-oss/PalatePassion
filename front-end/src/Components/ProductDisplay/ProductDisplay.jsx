@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import star_icon from './star_icon.png'
 import star_dull_icon from './star_dull_icon.png'
-import './ProductDisplay.css'
+
 import { ShopContext } from '../../Context/ShopContext'
 import { Link } from 'react-router-dom';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";

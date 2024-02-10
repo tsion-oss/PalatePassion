@@ -1,5 +1,4 @@
 
-import './Breadcrums.css';
 import { Link } from 'react-router-dom';
 
 const Breadcrums = (props) => {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './item.css'
+import './Item.css'
 
 const Item = (props) => {
     return (
