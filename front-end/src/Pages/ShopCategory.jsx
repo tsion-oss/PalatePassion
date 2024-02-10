@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { ShopContext } from '../Context/ShopContext.jsx'
 import Item from "../Components/Item/Item.jsx";
-import './CSS/ShopCategory.css'
 import SortingDropdown from "../Components/SortingDropdown.jsx/SortingDropdown.jsx";
 
 const ShopCategory = (props) => {
@@ -27,10 +26,7 @@ const ShopCategory = (props) => {
     };
 
     return (
-       
-       
-        <div className="shop-category mt-[120px]  mt-20 xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[5px] md:mt-[190px] mt-[170px]">
-            
+        <div className="shop-category mt-[120px]  mt-20 xl:mx-[170px] lg:mx-[120px] sm:mx-[30px]  mx-[5px] md:mt-[190px] mt-[170px]">
             <div className="shopcategory-indexSort flex flex-col md:flex-row justify-between items-center">
                 <p className="mb-2 md:mb-0">
                     <span className="font-bold">Showing 1-12</span> out of 36 products
@@ -40,23 +36,27 @@ const ShopCategory = (props) => {
                     <SortingDropdown />
                 </div>
             </div>
-
-
-
-
-            <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-10 md:gap-8 sm:gap-7 gap-3 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8">
-            {sortedProductList &&
-                    sortedProductList.map((item, i) => {
+    
+            {sortedProductList.length > 0 ? ( // Check if sortedProductList is not empty
+                <div className="shopcategory-products grid md:grid-cols-4 grid-cols-2 lg:gap-10 md:gap-8 sm:gap-7 gap-3 justify-center xl:mt-20 lg:mt-20 md:mt-12 mt-8">
+                    {sortedProductList.map((item, i) => {
                         if (props.category === item.category) {
                             return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />;
                         } else {
                             return null;
                         }
                     })}
-         </div>
-
-     </div>
+                </div>
+            ) : (
+                <div className="flex justify-center items-center h-[20vh]">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gray-500 border-r-transparent">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+            )}
+        </div>
     );
+    
 };
 
 export default ShopCategory;

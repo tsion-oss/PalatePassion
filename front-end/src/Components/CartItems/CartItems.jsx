@@ -12,6 +12,17 @@ const CartItems = () => {
       alert(`Payment due is ${getTotalCartAmount()} `)
     }
 
+    if (!cartItems) {
+      // If product data is not available, show loading spinner
+      return (
+          <div className="flex justify-center items-center h-[20vh]">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gray-500 border-r-transparent">
+              <span className="sr-only">Loading...</span>
+          </div>
+      </div>
+      );
+  }
+
     return (
          <div className="">
           <div className="text-center">

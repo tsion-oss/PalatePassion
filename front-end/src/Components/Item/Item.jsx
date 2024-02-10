@@ -10,7 +10,7 @@ const Item = (props) => {
             
             <Link to={`/product/${props.id}`} className="relative">
                 <img onClick={window.scrollTo(0,0)} className="w-full h-auto" src={props.image} alt={props.name} />
-                {/* <FontAwesomeIcon icon={faHeart} className='heart-icon' style={{ position: 'absolute', bottom: '7px', right: '7px' }}  /> */}
+                <FontAwesomeIcon icon={faHeart} className='heart-icon' style={{ position: 'absolute', bottom: '7px', right: '7px' }}  />
             </Link>
 
             </>

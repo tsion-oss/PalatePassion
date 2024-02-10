@@ -19,7 +19,7 @@ const Product =  () => {
 
 
     return (
-        <div className="mt-[150px] xl:mx-[170px] lg:mx-[120px] md:mx-[30px] sm:mx-[100px] mx-[20px]">
+        <div className="mt-[150px] xl:mx-[170px] lg:mx-[120px] sm:mx-[30px] mx-[5px]">
             <Breadcrums product={product}/>
             <ProductDisplay product={product}/>
             <RelatedProducts />
