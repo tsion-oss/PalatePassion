@@ -1,6 +1,6 @@
  # Palate Passion
 
-![demoscreenshot](/PalatePassion/front-end/src/assets/Untitled design (96).png)
+![demoscreenshot](/PalatePassion/front-end/src/assets/Untitled%20design%20(96).png)
 
  Palate Passion is a full-stack fully responsive ecommerce website,
 Responsive for all devices.
