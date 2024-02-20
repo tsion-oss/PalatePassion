@@ -161,7 +161,7 @@ const Navbar = ({ search, handleSearch, searchResults, defaultSearch, setSearch 
             <>
             {!menuOpen ? 
             (navShow && (
-            <div className="lg:hidden flex items-center md:p-3 sm:p-3 p-3 mx-3">
+            <div className="lg:hidden flex items-center md:p-3 sm:p-3 p-3 mx-5">
                   <div className="flex gap-4 mr-auto items-center">
                       <button
                               onClick={toggleMenu}
@@ -275,7 +275,7 @@ const Navbar = ({ search, handleSearch, searchResults, defaultSearch, setSearch 
 
 
             { menuOpen &&
-            <div className="lg:hidden absolute  right-0 top-[84px] bg-white p-4 w-full border-t-2 border-gray-300 text-[20px] ">
+            <div className="lg:hidden absolute  right-0 top-[84px] bg-white p-5 w-full border-t-2 border-gray-300 text-[20px]  ">
              
                 <NavLink to="/" onClick={() => toggleMenu(true)} className="block flex justify-between items-center gap-10 active:text-red-500 hover:text-red-600 mb-2">Shop<FaArrowRight size={15} color="black" /></NavLink>
                 <NavLink to="/mens" onClick={() => toggleMenu(true)} className="block flex justify-between items-center gap-12  active:text-red-500 hover:text-red-600 mb-2">Men<FaArrowRight size={15} color="black" /></NavLink>
