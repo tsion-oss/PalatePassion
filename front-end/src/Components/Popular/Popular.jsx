@@ -6,7 +6,7 @@ const Popular = () => {
     const { backendData } = useContext(ShopContext);
 
     return (
-        <div className="PopularBox flex flex-col items-center gap-3 h-full md:h-screen mt-20 xl:mx-[170px] lg:mx-[120px] sm:mx-[30px]  mx-[5px]">
+        <div className="PopularBox flex flex-col items-center gap-3  xl:mx-[170px] lg:mx-[120px]  sm:mx-[30px]  mx-[5px] md:mt-10 mt-20 md:mb-[100px] ">
             <h1 className="text-black text-2xl md:text-2xl lg:text-3xl font-bold">POPULAR IN WOMEN</h1>
             <hr className="w-[20%] h-1 rounded-lg bg-black" />
             {backendData ? (
